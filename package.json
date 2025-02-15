@@ -1,0 +1,54 @@
+{
+  "name": "tiro_esportivo",
+  "version": "1.0.0",
+  "description": "Projeto para CLubes de Tiro",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "jest",
+    "test:coverage": "react-scripts test --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SimonUlbra/tiroesportivo.git"
+  },
+  "author": "Luís Eduardo Simon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SimonUlbra/tiroesportivo/issues"
+  },
+  "homepage": "https://github.com/SimonUlbra/tiroesportivo#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "firebase": "^11.3.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-google-login": "^5.2.2",
+    "react-router-dom": "^5.3.4",
+    "react-scripts": "^5.0.1",
+    "tiro_esportivo": "file:"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.15.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/react-hooks": "^7.0.2",
+    "@testing-library/user-event": "^13.5.0",
+    "jest": "^27.4.5",
+    "nodemon": "^3.1.9",
+    "supertest": "^6.1.6"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

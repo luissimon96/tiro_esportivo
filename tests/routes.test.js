@@ -1,6 +1,7 @@
 const request = require('supertest');
 const express = require('express');
 const session = require('express-session');
+const path = require('path'); // Adicionei a importação do path
 const app = express();
 
 app.use(session({ secret: 'umassenhaaleatoria', resave: false, saveUninitialized: true }));

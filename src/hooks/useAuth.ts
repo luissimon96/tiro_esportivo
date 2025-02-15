@@ -1,18 +1,18 @@
-import { useState, useContext, createContext } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import { auth } from '../services/firebase';
 
-const AuthContext = createContext<any>(null);
+const AuthContext = createContext({});
 
-export const AuthProvider: React.FC = ({ children }) => {
-  const [user, setUser] = useState<any>(null);
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState<auth.User | null>(null);
 
-  const signInWithGoogle = async (tokenId: string) => {
-    const credential = auth.GoogleAuthProvider.credential(tokenId);
+  const signInWithGoogle = async () => {
+    const provider = new auth.GoogleAuthProvider();
     try {
-      const result = await auth().signInWithCredential(credential);
+      const result = await auth().signInWithPopup(provider);
       setUser(result.user);
     } catch (error) {
-      console.error('Error signing in with Google:', error);
+      console.error(error);
     }
   };
 

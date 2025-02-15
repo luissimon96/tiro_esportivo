@@ -3,6 +3,13 @@
 ## Descrição
 Este projeto é uma aplicação web para gerenciamento de eventos de tiro esportivo. Ele utiliza Node.js para o backend e HTML/CSS para o frontend.
 
+## Estrutura do Projeto
+O projeto segue os princípios da Clean Architecture, dividindo o código em diferentes camadas:
+
+- **Presentation**: Contém os controladores e as views.
+- **Domain**: Contém a lógica de negócios.
+- **Infrastructure**: Contém a configuração do servidor e as rotas.
+
 ## Instalação
 Para executar o projeto em live-server, execute no terminal:
 ```

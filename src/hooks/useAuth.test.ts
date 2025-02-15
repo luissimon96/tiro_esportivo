@@ -4,40 +4,41 @@ import { auth } from '../services/firebase';
 
 jest.mock('../services/firebase', () => ({
   auth: {
-    GoogleAuthProvider: {
-      credential: jest.fn()
-    },
-    signInWithCredential: jest.fn()
-  }
+    GoogleAuthProvider: jest.fn(),
+    signInWithPopup: jest.fn(),
+  },
 }));
 
-describe('useAuth', () => {
-  test('signInWithGoogle signs in user with Google', async () => {
-    const mockUser = { uid: '123', email: 'test@example.com' };
-    (auth.signInWithCredential as jest.Mock).mockResolvedValue({ user: mockUser });
+describe('useAuth hook', () => {
+  it('should sign in with Google', async () => {
+    const user = { uid: '123', email: 'test@example.com' };
+    (auth.signInWithPopup as jest.Mock).mockResolvedValueOnce({ user });
 
-    const { result } = renderHook(() => useAuth(), { wrapper: AuthProvider });
+    const wrapper = ({ children }) => <AuthProvider>{ children } </AuthProvider>;
+    const { result, waitForNextUpdate } = renderHook(() => useAuth(), { wrapper });
 
-    await act(async () => {
-      await result.current.signInWithGoogle('test-token');
+    act(() => {
+      result.current.signInWithGoogle();
     });
 
-    expect(auth.GoogleAuthProvider.credential).toHaveBeenCalledWith('test-token');
-    expect(auth.signInWithCredential).toHaveBeenCalled();
-    expect(result.current.user).toEqual(mockUser);
+    await waitForNextUpdate();
+
+    expect(result.current.user).toEqual(user);
   });
 
-  test('handles signInWithGoogle error', async () => {
-    const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
-    (auth.signInWithCredential as jest.Mock).mockRejectedValue(new Error('Sign in error'));
+  it('should handle sign in error', async () => {
+    const error = new Error('Sign in failed');
+    (auth.signInWithPopup as jest.Mock).mockRejectedValueOnce(error);
 
-    const { result } = renderHook(() => useAuth(), { wrapper: AuthProvider });
+    const wrapper = ({ children }) => <AuthProvider>{ children } </AuthProvider>;
+    const { result, waitForNextUpdate } = renderHook(() => useAuth(), { wrapper });
 
-    await act(async () => {
-      await result.current.signInWithGoogle('test-token');
+    act(() => {
+      result.current.signInWithGoogle();
     });
 
-    expect(consoleErrorSpy).toHaveBeenCalledWith('Error signing in with Google:', new Error('Sign in error'));
-    consoleErrorSpy.mockRestore();
+    await waitForNextUpdate();
+
+    expect(result.current.user).toBeNull();
   });
 });
