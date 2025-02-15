@@ -8,22 +8,23 @@ var username_valid = false
 var password_valid = false
 
 username.oninput = function () {
-  if (this.value.length > 4) {
-    username_valid = true
+  const usernameRegex = /^[a-zA-Z0-9_]{5,}$/;
+  if (usernameRegex.test(this.value)) {
+    username_valid = true;
   } else {
-    username_valid = false
+    username_valid = false;
   }
-  form_valid(username_valid, password_valid)
+  form_valid(username_valid, password_valid);
 }
 
 password.oninput = function () {
-  if (this.value.length > 8) {
-    password_valid = true
+  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+  if (passwordRegex.test(this.value)) {
+    password_valid = true;
   } else {
-    password_valid = false
+    password_valid = false;
   }
-
-  form_valid(username_valid, password_valid)
+  form_valid(username_valid, password_valid);
 }
 
 function form_valid(username_valid, password_valid) {

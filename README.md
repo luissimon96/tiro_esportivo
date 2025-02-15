@@ -1,17 +1,17 @@
-# Projeto em NodeJs HTLM e CSS 
+# Projeto em NodeJs HTML e CSS 
 
 ## Descrição
 Este projeto é uma aplicação web para gerenciamento de eventos de tiro esportivo. Ele utiliza Node.js para o backend e HTML/CSS para o frontend.
 
 ## Instalação
-Para executar o projeto em liver-server, execute no terminal:
+Para executar o projeto em live-server, execute no terminal:
 ```
 nodemon index.js
 ```
 
 Para instalar novos módulos, execute:
 ```
-npm install ${nomedopacote}
+npm install <nome-do-pacote>
 ```
 
 ## Uso
