@@ -7,8 +7,7 @@
     "start": "nodemon index.js",
     "test": "jest",
     "test:coverage": "react-scripts test --coverage",
-    "build": "react-scripts build && tar -czvf build.tar.gz build",
-    "install": "npm install --loglevel=error"
+    "build": "react-scripts build && tar -czvf build.tar.gz build"
   },
   "repository": {
     "type": "git",
