@@ -4,8 +4,176 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: radial-gradient(circle, rgba(20, 147, 220, 1) 0%, rgba(17, 54, 71, 1) 100%);
+            margin: 0;
+            padding: 20px;
+            overflow: hidden;
+        }
+        .raindrop {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-height: 90vh;
+            overflow-y: scroll;
+            scrollbar-width: none; /* Firefox */
+        }
+        .container::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        h3 {
+            color: #555;
+        }
+        p, ul {
+            color: #666;
+            line-height: 1.6;
+        }
+        ul {
+            padding-left: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h2>Página Sobre</h2>
+    <div class="container">
+        <h2>Sobre</h2>
+        <h3>Descrição</h3>
+        <p>Este projeto é uma aplicação web para gerenciamento de eventos de tiro esportivo. Ele utiliza Node.js para o backend e HTML/CSS para o frontend.</p>
+        
+        <h3>Estrutura do Projeto</h3>
+        <p>O projeto segue os princípios da Clean Architecture, dividindo o código em diferentes camadas:</p>
+        <ul>
+            <li><strong>Presentation</strong>: Contém os controladores e as views.</li>
+            <li><strong>Domain</strong>: Contém a lógica de negócios.</li>
+            <li><strong>Infrastructure</strong>: Contém a configuração do servidor e as rotas.</li>
+        </ul>
+        
+        <h3>Instalação</h3>
+        <p>Para executar o projeto em live-server, execute no terminal:</p>
+        <pre><code>nodemon index.js</code></pre>
+        <p>Para instalar novos módulos, execute:</p>
+        <pre><code>npm install &lt;nome-do-pacote&gt;</code></pre>
+        
+        <h3>Uso</h3>
+        <ol>
+            <li>Clone o repositório:
+                <pre><code>git clone &lt;URL-do-repositório&gt;</code></pre>
+            </li>
+            <li>Navegue até o diretório do projeto:
+                <pre><code>cd Tiro_Esportivo</code></pre>
+            </li>
+            <li>Instale as dependências:
+                <pre><code>npm install</code></pre>
+            </li>
+            <li>Inicie o servidor:
+                <pre><code>nodemon index.js</code></pre>
+            </li>
+            <li>Abra o navegador e acesse:
+                <pre><code>http://localhost:3000</code></pre>
+            </li>
+        </ol>
+        
+        <h3>Dependências</h3>
+        <ul>
+            <li>Node.js</li>
+            <li>Express</li>
+            <li>Nodemon</li>
+        </ul>
+        
+        <h3>Configuração do VS Code para evitar avisos de fim de linha</h3>
+        <p>Para evitar os avisos de fim de linha no VS Code, adicione a seguinte configuração ao seu arquivo de configurações do VS Code (<code>settings.json</code>):</p>
+        <pre><code>"files.eol": "\n",
+"git.autofetch": true</code></pre>
+        
+        <h3>Regras de Negócio</h3>
+        <h4>Autenticação de Usuários</h4>
+        <ul>
+            <li>Usuários podem se cadastrar utilizando um email e senha.</li>
+            <li>Usuários podem se autenticar utilizando suas credenciais (email e senha).</li>
+            <li>Integração com Google OAuth para permitir login com contas Google.</li>
+            <li>Sessões de usuário devem expirar após um período de inatividade.</li>
+        </ul>
+        
+        <h4>Relatórios</h4>
+        <ul>
+            <li>Relatórios de eventos podem ser gerados em formato PDF.</li>
+            <li>Relatórios devem incluir informações detalhadas sobre os eventos, participantes e resultados.</li>
+            <li>Relatórios de uso do sistema, incluindo número de logins, eventos criados e outras métricas relevantes.</li>
+        </ul>
+        
+        <h4>Funcionalidades do Sistema</h4>
+        <ul>
+            <li>Cadastro e gerenciamento de eventos de tiro esportivo.</li>
+            <li>Cadastro e gerenciamento de participantes.</li>
+            <li>Sistema de pontuação e ranking para eventos.</li>
+            <li>Notificações por email para eventos e atualizações importantes.</li>
+            <li>Dashboard administrativo para visualização de métricas e relatórios.</li>
+        </ul>
+        
+        <h4>Valores de Mensalidade para Clubes</h4>
+        <ul>
+            <li>Mensalidade básica: R$ 100,00 por mês.</li>
+            <li>Pacote trimestral: R$ 270,00 (10% de desconto).</li>
+            <li>Pacote semestral: R$ 510,00 (15% de desconto).</li>
+            <li>Pacote anual: R$ 960,00 (20% de desconto).</li>
+        </ul>
+        
+        <h3>SEO (Search Engine Optimization)</h3>
+        <h4>Palavras-chave</h4>
+        <ul>
+            <li>Gerenciamento de eventos de tiro esportivo</li>
+            <li>Software de tiro esportivo</li>
+            <li>Aplicação web de tiro esportivo</li>
+            <li>Eventos de tiro esportivo</li>
+            <li>Sistema de pontuação de tiro esportivo</li>
+        </ul>
+        
+        <h4>Descrição Meta</h4>
+        <p>Este software oferece uma solução completa para o gerenciamento de eventos de tiro esportivo, incluindo cadastro de participantes, sistema de pontuação, notificações por email e geração de relatórios detalhados.</p>
+        
+        <h4>Estratégias de SEO</h4>
+        <ul>
+            <li><strong>Conteúdo de Qualidade</strong>: Produzir conteúdo relevante e de alta qualidade sobre tiro esportivo e gerenciamento de eventos.</li>
+            <li><strong>Palavras-chave</strong>: Utilizar palavras-chave relevantes em todo o site, incluindo títulos, descrições e conteúdo.</li>
+            <li><strong>Backlinks</strong>: Obter backlinks de sites respeitáveis e relacionados ao tiro esportivo.</li>
+            <li><strong>Redes Sociais</strong>: Promover o software em redes sociais para aumentar a visibilidade e atrair tráfego.</li>
+            <li><strong>Blog</strong>: Manter um blog atualizado com dicas, notícias e tutoriais sobre tiro esportivo e uso do software.</li>
+            <li><strong>SEO Técnico</strong>: Garantir que o site seja rápido, responsivo e fácil de navegar, além de otimizar para dispositivos móveis.</li>
+        </ul>
+    </div>
+    <script>
+        function createRaindrop() {
+            const raindrop = document.createElement('div');
+            raindrop.classList.add('raindrop');
+            raindrop.style.width = `${Math.random() * 5 + 2}px`;
+            raindrop.style.height = raindrop.style.width;
+            raindrop.style.left = `${Math.random() * 100}vw`;
+            raindrop.style.animationDuration = `${Math.random() * 2 + 1}s`;
+            document.body.appendChild(raindrop);
+            setTimeout(() => {
+                raindrop.remove();
+            }, 3000);
+        }
+        setInterval(createRaindrop, 100);
+    </script>
 </body>
 </html>
