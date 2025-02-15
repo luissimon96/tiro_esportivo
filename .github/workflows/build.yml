@@ -38,7 +38,7 @@ jobs:
         token: ${{ secrets.SONAR_TOKEN }}
 
     - name: Upload build artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: build-artifact
         path: build.tar.gz
