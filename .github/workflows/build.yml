@@ -36,3 +36,9 @@ jobs:
         projectKey: ${{ secrets.SONAR_PROJECT_KEY }}
         organization: ${{ secrets.SONAR_ORGANIZATION }}
         token: ${{ secrets.SONAR_TOKEN }}
+
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: build-artifact
+        path: build.tar.gz
