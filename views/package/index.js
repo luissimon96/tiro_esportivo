@@ -4,11 +4,11 @@ const check = document.getElementById('check')
 const spinner = document.getElementById('spinner')
 const button = document.getElementById('connect')
 
-var username_valid = false
-var password_valid = false
+let username_valid = false
+let password_valid = false
 
 username.oninput = function () {
-  const usernameRegex = /^[a-zA-Z0-9_]{5,}$/;
+  const usernameRegex = /^\w{5,}$/;
   if (usernameRegex.test(this.value)) {
     username_valid = true;
   } else {
